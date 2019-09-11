@@ -3,17 +3,20 @@
 	<head>
 		<meta charset="UTF-8" />
 		<title>WordCamp Tokyo 2019 景品スロット</title>
+		<link href="https://fonts.googleapis.com/css?family=Raleway:600,700,800&display=swap" rel="stylesheet">
 		<link rel="stylesheet" href="style.css" />
 	</head>
 	<body>
-		<div class="outline">
-			<div class="roulette" id="roulette"></div>
-			<input type="button" value="ROULETTE" id="pageback" onclick="pageback();"/>
-			<div id="slot"><img id='img' src="img/img_start.png" alt=""></div>
-			<br />
-			<div id="result"></div>
-			<input type="button" value="START" id="start" onclick="start(); slot()"/>
-			<input type="button" value="STOP" id="stop" onclick="stop();"/>
+		<div class="wrapper">
+			<div class="outline">
+				<div class="roulette" id="roulette"></div>
+				<input type="button" value="ROULETTE" id="pageback" onclick="pageback();"/>
+				<div id="slot"><img id='img' src="img/img_start.png" alt=""></div>
+				<br />
+				<div id="result"></div>
+				<input type="button" value="START" id="start" onclick="start(); slot()"/>
+				<input type="button" value="STOP" id="stop" onclick="stop();"/>
+			</div>
 		</div>
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
