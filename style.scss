@@ -30,11 +30,7 @@ body {
 }
 body {
 	background: url(img/bg.svg) repeat;
-	background-size: 1024px auto;
-	background-position: 20% 20px;
-	@include mq(pt){
-		background-size: 1240px auto;
-	}
+	background-size: cover;
 	.wrapper{
 		width: 100%;
 		height: 100vh;
