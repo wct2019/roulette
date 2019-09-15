@@ -18,12 +18,12 @@ var itemList
 this.itemList = {
 	// 商品番号: {商品名: 初期個数}
 	0: {tshirt: 1},
-	1: {steicker2019: 1},
+	1: {sticker2019: 1},
 	2: {sticker_history: 1},
 	3: {bottle: 1},
 	4: {mobilebattery: 1},
 	5: {dorayaki: 1},
-	6: {bag: 1},
+	6: {choco: 1},
 	7: {bankerring: 1}
 };
 
