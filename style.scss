@@ -1,0 +1,123 @@
+@charset 'UTF-8';
+
+/* --------------------
+ media query
+-------------------- */
+$breakpoints: (
+	'pt': 'screen and (max-width: 1024px) and (orientation: portrait)', //縦
+	'ln': 'screen and (min-width: 1024px) and (orientation: landscape)' //横
+) !default;
+//メディアクエリ指定用mixin
+@mixin mq($breakpoint: ln) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}
+
+/* --------------------
+  style
+-------------------- */
+*{
+	padding: 0;
+	margin: 0;
+}
+html,
+body {
+	width: 100%;
+	height: 100%;
+	min-height: 100%;
+	font-family: 'Raleway', sans-serif;
+}
+body {
+	background: url(img/bg.svg) repeat;
+	background-size: cover;
+	.wrapper{
+		width: 100%;
+		height: 100vh;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		box-sizing: border-box;
+		.outline{
+			padding: 20px;
+			//page back btn
+			#pageback{
+				-webkit-appearance:none;
+				display: block;
+				position: absolute;
+				top: 10px;
+				left: 10px;
+				-webkit-appearance: none;
+				background: #333333;
+				border: 1px solid transparent;
+				padding: 10px;
+				color: #fff;
+				&[style="visibility: hidden;"]{
+					display: none;
+				}
+			}
+			//slot
+			#slot{
+				text-align: center;
+				img{
+					max-width: 100%;
+					height: auto;
+					max-height: 60vh;
+					text-align: center;
+					margin-bottom: 20px;
+				}
+			}
+			//start btn
+			#start{
+				-webkit-appearance: none;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				padding: 10px 20px;
+				min-width: 240px;
+				border: 5px solid #ffffff;
+				background: linear-gradient(to bottom, #5b5752 0%,#2b2a27 100%);
+				border-radius: 40px;
+				color: #ffffff;
+				font-size: 32px;
+				font-weight: bold;
+				cursor: pointer;
+				margin: 0 auto;
+				&[style="visibility: hidden;"]{
+					display: none;
+				}
+			}
+			//stop btn
+			#stop{
+				-webkit-appearance: none;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				padding: 10px 20px;
+				min-width: 240px;
+				border: 5px solid #ffffff;
+				background: linear-gradient(to bottom, #ff3019 0%,#cf0404 100%);
+				border-radius: 40px;
+				color: #ffffff;
+				font-size: 32px;
+				font-weight: bold;
+				cursor: pointer;
+				margin: 0 auto;
+				&[style="visibility: hidden;"]{
+					display: none;
+				}
+			}
+			//result
+			#result {
+				background: #fff;
+				border: 10px solid #333333;
+				text-align: center;
+				padding: 10px 20px;
+				font-weight: bold;
+				font-size: 40px;
+				border-radius: 80px;
+				display: none;
+			}
+		}
+	}
+}
