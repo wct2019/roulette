@@ -1,8 +1,8 @@
 /**
- * WordCamp Tokyo 2015 景品スロット
+ * WordCamp Tokyo 2019 景品スロット
  *
- * @version    0.1.0-beta
- * @author     Keisuke Imura <keisuke@keisuke-imura.com>
+ * @version    0.1.0
+ * @author     Takahiro Takamuku <keisuke@keisuke-imura.com>
  * @license    The MIT License
  * @link       http://funteractive.jp/
  */
@@ -11,20 +11,22 @@
 document.getElementById('pageback').style.visibility = 'hidden';
 document.getElementById('stop').style.visibility = 'hidden';
 
+// 在庫数更新画面を非表示
+document.getElementById('displayitems').style.visibility = 'hidden';
+
 // 商品一覧
-var itemList
+var itemList;
 
 // 商品の初期値
 this.itemList = {
 	// 商品番号: {商品名: 初期個数}
 	0: {tshirt: 1},
-	1: {sticker2019: 1},
-	2: {sticker_history: 1},
-	3: {bottle: 1},
-	4: {mobilebattery: 1},
-	5: {dorayaki: 1},
-	6: {choco: 1},
-	7: {bankerring: 1}
+	1: {sticker_history: 1},
+	2: {bottle: 1},
+	3: {mobilebattery: 1},
+	4: {dorayaki: 1},
+	5: {choco: 1},
+	6: {bankerring: 1}
 };
 
 // ルーレットオブジェクト（獲得商品用）
@@ -148,3 +150,163 @@ function pageback() {
 	document.getElementById('pageback').style.visibility = 'hidden';
 	document.getElementById('start').style.visibility = 'visible';
 }
+
+// 在庫の確認を行う
+function itemcheck() {
+	console.log(this.itemList);
+
+	// 在庫数更新画面を表示
+	document.getElementById('displayitems').style.visibility = 'visible';
+	document.getElementById('tshirt').textContent = itemList[0].tshirt;
+	document.getElementById('sticker_history').textContent = itemList[1].sticker_history;
+	document.getElementById('bottle').textContent = itemList[2].bottle;
+	document.getElementById('mobilebattery').textContent = itemList[3].mobilebattery;
+	document.getElementById('dorayaki').textContent = itemList[4].dorayaki;
+	document.getElementById('choco').textContent = itemList[5].choco;
+	document.getElementById('bankerring').textContent = itemList[6].bankerring;
+}
+
+function nodisplay() {
+	// 在庫数更新画面を表示
+	document.getElementById('displayitems').style.visibility = 'hidden';
+}
+
+// T-シャツ 在庫数の更新
+function tshirtIncrement() {
+	// 獲得商品の残り個数を増やす
+	itemList[0].tshirt += Number(document.getElementById('tshirtupdate').value);
+	itemcheck();
+}
+
+function tshirtDecrement() {
+	// 獲得商品の残り個数を減らす
+	itemList[0].tshirt -= Number(document.getElementById('tshirtupdate').value);
+	if (itemList[0].tshirt < 0) {
+		itemList[0].tshirt = 0;
+	}
+	itemcheck();
+}
+// T-シャツ 在庫数の更新ここまで
+
+// 歴代わぷーステッカー 在庫数の更新
+function stickerHistoryIncrement() {
+	// 獲得商品の残り個数を増やす
+	itemList[1].sticker_history += Number(document.getElementById('stickerhistoryupdate').value);
+	itemcheck();
+}
+
+function stickerHistoryDecrement() {
+	// 獲得商品の残り個数を減らす
+	itemList[1].sticker_history -= Number(document.getElementById('stickerhistoryupdate').value);
+	if (itemList[1].sticker_history < 0) {
+		itemList[1].sticker_history = 0;
+	}
+	itemcheck();
+}
+// 歴代わぷーステッカー 在庫数の更新ここまで
+
+// アルミボトル 在庫数の更新
+function bottleIncrement() {
+	// 獲得商品の残り個数を増やす
+	itemList[2].bottle += Number(document.getElementById('bottleupdate').value);
+	itemcheck();
+}
+
+function bottleDecrement() {
+	// 獲得商品の残り個数を減らす
+	itemList[2].bottle -= Number(document.getElementById('bottleupdate').value);
+	if (itemList[2].bottle < 0) {
+		itemList[2].bottle = 0;
+	}
+	itemcheck();
+}
+// アルミボトル 在庫数の更新ここまで
+
+// モバイルバッテリー 在庫数の更新
+function mobilebatteryIncrement() {
+	// 獲得商品の残り個数を増やす
+	itemList[3].mobilebattery += Number(document.getElementById('mobilebatteryupdate').value);
+	itemcheck();
+}
+
+function mobilebatteryDecrement() {
+	// 獲得商品の残り個数を減らす
+	itemList[3].mobilebattery -= Number(document.getElementById('mobilebatteryupdate').value);
+	if (itemList[3].mobilebattery < 0) {
+		itemList[3].mobilebattery = 0;
+	}
+	itemcheck();
+}
+// モバイルバッテリー 在庫数の更新ここまで
+
+// どらやき 在庫数の更新
+function dorayakiIncrement() {
+	// 獲得商品の残り個数を増やす
+	itemList[4].dorayaki += Number(document.getElementById('dorayakiupdate').value);
+	itemcheck();
+}
+
+function dorayakiDecrement() {
+	// 獲得商品の残り個数を減らす
+	itemList[4].dorayaki -= Number(document.getElementById('dorayakiupdate').value);
+	if (itemList[4].dorayaki < 0) {
+		itemList[4].dorayaki = 0;
+	}
+	itemcheck();
+}
+// どらやき 在庫数の更新ここまで
+
+// カスタムチョコレート 在庫数の更新
+function chocoIncrement() {
+	// 獲得商品の残り個数を増やす
+	itemList[5].choco += Number(document.getElementById('chocoupdate').value);
+	itemcheck();
+}
+
+function chocoDecrement() {
+	// 獲得商品の残り個数を減らす
+	itemList[5].choco -= Number(document.getElementById('chocoupdate').value);
+	if (itemList[5].choco < 0) {
+		itemList[5].choco = 0;
+	}
+	itemcheck();
+}
+// カスタムチョコレート 在庫数の更新ここまで
+
+// バンカーリング 在庫数の更新
+function bankerringIncrement() {
+	// 獲得商品の残り個数を増やす
+	itemList[6].bankerring += Number(document.getElementById('bankerringupdate').value);
+	itemcheck();
+}
+
+function bankerringDecrement() {
+	// 獲得商品の残り個数を減らす
+	itemList[6].bankerring -= Number(document.getElementById('bankerringupdate').value);
+	if (itemList[6].bankerring < 0) {
+		itemList[6].bankerring = 0;
+	}
+	itemcheck();
+}
+// バンカーリング 在庫数の更新ここまで
+
+// 在庫数ファイルの読み込み（現在のところ使用用途無し）
+// $("#loadFile").onchange = function(evt){
+//     var file = evt.target.files[0];
+//     if(!file.type.match(/text/)){
+//         alert('テキストファイルを' + '選んで下さい');
+//         return;
+// }
+
+// var reader = new FileReader();
+// reader.onload = function(evt) {
+//     $("#info").value = evt.target.result;
+// }
+//
+// reader.readAsText(file, "Shift_JIS");
+// }
+//
+// function $(id) {
+//     return document.querySelector(id);
+// }
+// 在庫数ファイルの読み込みここまで
