@@ -20,13 +20,13 @@ var itemList;
 // 商品の初期値
 this.itemList = {
 	// 商品番号: {商品名: 初期個数}
-	0: {tshirt: 1},
-	1: {sticker_history: 1},
-	2: {bottle: 1},
-	3: {mobilebattery: 1},
-	4: {dorayaki: 1},
-	5: {choco: 1},
-	6: {bankerring: 1}
+	0: {tshirt: 30},
+	1: {sticker_history: 500},
+	2: {bottle: 100},
+	3: {mobilebattery: 100},
+	4: {dorayaki: 120},
+	5: {chocolate: 495},
+	6: {bankerring: 100}
 };
 
 // ルーレットオブジェクト（獲得商品用）
@@ -162,7 +162,7 @@ function itemcheck() {
 	document.getElementById('bottle').textContent = itemList[2].bottle;
 	document.getElementById('mobilebattery').textContent = itemList[3].mobilebattery;
 	document.getElementById('dorayaki').textContent = itemList[4].dorayaki;
-	document.getElementById('choco').textContent = itemList[5].choco;
+	document.getElementById('chocolate').textContent = itemList[5].chocolate;
 	document.getElementById('bankerring').textContent = itemList[6].bankerring;
 }
 
@@ -257,17 +257,17 @@ function dorayakiDecrement() {
 // どらやき 在庫数の更新ここまで
 
 // カスタムチョコレート 在庫数の更新
-function chocoIncrement() {
+function chocolateIncrement() {
 	// 獲得商品の残り個数を増やす
-	itemList[5].choco += Number(document.getElementById('chocoupdate').value);
+	itemList[5].chocolate += Number(document.getElementById('chocolateupdate').value);
 	itemcheck();
 }
 
-function chocoDecrement() {
+function chocolateDecrement() {
 	// 獲得商品の残り個数を減らす
-	itemList[5].choco -= Number(document.getElementById('chocoupdate').value);
-	if (itemList[5].choco < 0) {
-		itemList[5].choco = 0;
+	itemList[5].chocolate -= Number(document.getElementById('chocolateupdate').value);
+	if (itemList[5].chocolate < 0) {
+		itemList[5].chocolate = 0;
 	}
 	itemcheck();
 }
