@@ -2,6 +2,9 @@
 <html lang="ja">
 	<head>
 		<meta charset="UTF-8" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+		<link rel="apple-touch-icon" href="img/appicon.png">
 		<title>WordCamp Tokyo 2019 景品スロット</title>
 		<link href="https://fonts.googleapis.com/css?family=Raleway:600,700,800&display=swap" rel="stylesheet">
 		<link rel="stylesheet" href="style.css" />
@@ -19,65 +22,68 @@
 			</div>
 		</div>
 
-		<input type="button" value="在庫確認表示(staff only)" id="itemcheck" onclick="itemcheck();"/>
-		<input type="button" value="在庫確認非表示(staff only)" id="nodisplay" onclick="nodisplay();"/>
+		<input type="button" value="在庫確認(スタッフ用)" id="staffControlBtn" />
 
-		<div id="displayitems">
-			<div class="tshirt">
-				<p>T-シャツ 在庫数</p>
-				<p id="tshirt"></p>
-				<p>T-シャツの在庫を</p>
-				<input type="number" name="tshirt" id="tshirtupdate" min="0">
-				<input type="button" value="増やす" onclick="tshirtIncrement();"/>
-				<input type="button" value="減らす" onclick="tshirtDecrement();"/>
-			</div>
-			<div class="sticker_history">
-				<p>歴代わぷーステッカー 在庫数</p>
-				<p id="sticker_history"></p>
-				<p>歴代わぷーステッカーの在庫を</p>
-				<input type="number" name="sticker_history" id="stickerhistoryupdate" min="0">
-				<input type="button" value="増やす" onclick="stickerHistoryIncrement();"/>
-				<input type="button" value="減らす" onclick="stickerHistoryDecrement();"/>
-			</div>
-			<div class="bottle">
-				<p>アルミボトル 在庫数</p>
-				<p id="bottle"></p>
-				<p>アルミボトルの在庫を</p>
-				<input type="number" name="bottle" id="bottleupdate" min="0">
-				<input type="button" value="増やす" onclick="bottleIncrement();"/>
-				<input type="button" value="減らす" onclick="bottleDecrement();"/>
-			</div>
-			<div class="mobilebattery">
-				<p>モバイルバッテリー 在庫数</p>
-				<p id="mobilebattery"></p>
-				<p>モバイルバッテリーの在庫を</p>
-				<input type="number" name="mobilebattery" id="mobilebatteryupdate" min="0">
-				<input type="button" value="増やす" onclick="mobilebatteryIncrement();"/>
-				<input type="button" value="減らす" onclick="mobilebatteryDecrement();"/>
-			</div>
-			<div class="dorayaki">
-				<p>どらやき 在庫数</p>
-				<p id="dorayaki"></p>
-				<p>どらやきの在庫を</p>
-				<input type="number" name="dorayaki" id="dorayakiupdate" min="0">
-				<input type="button" value="増やす" onclick="dorayakiIncrement();"/>
-				<input type="button" value="減らす" onclick="dorayakiDecrement();"/>
-			</div>
-			<div class="chocolate">
-				<p>カスタムチョコレート 在庫数</p>
-				<p id="chocolate"></p>
-				<p>カスタムチョコレートの在庫を</p>
-				<input type="number" name="choco" id="chocolateupdate" min="0">
-				<input type="button" value="増やす" onclick="chocolateIncrement();"/>
-				<input type="button" value="減らす" onclick="chocolateDecrement();"/>
-			</div>
-			<div class="bankerring">
-				<p>バンカーリング 在庫数</p>
-				<p id="bankerring"></p>
-				<p>バンカーリングの在庫を</p>
-				<input type="number" name="bankerring" id="bankerringupdate" min="0">
-				<input type="button" value="増やす" onclick="bankerringIncrement();"/>
-				<input type="button" value="減らす" onclick="bankerringDecrement();"/>
+
+		<div id="displayitemsStock">
+			<div class="innerCont">
+				<h2>スタッフ専用ノベルティ在庫数管理画面</h2>
+				<div class="tshirt">
+					<p>T-シャツ 在庫数</p>
+					<p id="tshirt"></p>
+					<p>T-シャツの在庫を</p>
+					<input type="number" name="tshirt" id="tshirtupdate" min="0">
+					<input type="button" value="増やす" onclick="tshirtIncrement();"/>
+					<input type="button" value="減らす" onclick="tshirtDecrement();"/>
+				</div>
+				<div class="sticker_history">
+					<p>歴代わぷーステッカー 在庫数</p>
+					<p id="sticker_history"></p>
+					<p>歴代わぷーステッカーの在庫を</p>
+					<input type="number" name="sticker_history" id="stickerhistoryupdate" min="0">
+					<input type="button" value="増やす" onclick="stickerHistoryIncrement();"/>
+					<input type="button" value="減らす" onclick="stickerHistoryDecrement();"/>
+				</div>
+				<div class="bottle">
+					<p>アルミボトル 在庫数</p>
+					<p id="bottle"></p>
+					<p>アルミボトルの在庫を</p>
+					<input type="number" name="bottle" id="bottleupdate" min="0">
+					<input type="button" value="増やす" onclick="bottleIncrement();"/>
+					<input type="button" value="減らす" onclick="bottleDecrement();"/>
+				</div>
+				<div class="mobilebattery">
+					<p>モバイルバッテリー 在庫数</p>
+					<p id="mobilebattery"></p>
+					<p>モバイルバッテリーの在庫を</p>
+					<input type="number" name="mobilebattery" id="mobilebatteryupdate" min="0">
+					<input type="button" value="増やす" onclick="mobilebatteryIncrement();"/>
+					<input type="button" value="減らす" onclick="mobilebatteryDecrement();"/>
+				</div>
+				<div class="dorayaki">
+					<p>どらやき 在庫数</p>
+					<p id="dorayaki"></p>
+					<p>どらやきの在庫を</p>
+					<input type="number" name="dorayaki" id="dorayakiupdate" min="0">
+					<input type="button" value="増やす" onclick="dorayakiIncrement();"/>
+					<input type="button" value="減らす" onclick="dorayakiDecrement();"/>
+				</div>
+				<div class="chocolate">
+					<p>カスタムチョコレート 在庫数</p>
+					<p id="chocolate"></p>
+					<p>カスタムチョコレートの在庫を</p>
+					<input type="number" name="choco" id="chocolateupdate" min="0">
+					<input type="button" value="増やす" onclick="chocolateIncrement();"/>
+					<input type="button" value="減らす" onclick="chocolateDecrement();"/>
+				</div>
+				<div class="bankerring">
+					<p>バンカーリング 在庫数</p>
+					<p id="bankerring"></p>
+					<p>バンカーリングの在庫を</p>
+					<input type="number" name="bankerring" id="bankerringupdate" min="0">
+					<input type="button" value="増やす" onclick="bankerringIncrement();"/>
+					<input type="button" value="減らす" onclick="bankerringDecrement();"/>
+				</div>
 			</div>
 		</div>
 
