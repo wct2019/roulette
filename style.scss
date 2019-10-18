@@ -20,6 +20,7 @@ $breakpoints: (
 *{
 	padding: 0;
 	margin: 0;
+	box-sizing: border-box;
 }
 html,
 body {
@@ -27,6 +28,7 @@ body {
 	height: 100%;
 	min-height: 100%;
 	font-family: 'Raleway', sans-serif;
+	position: relative;
 }
 body {
 	background: url(img/bg.svg) repeat;
@@ -119,5 +121,111 @@ body {
 				display: none;
 			}
 		}
+	}
+	//#displayitemsStock
+	#displayitemsStock{
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 100vh;
+		background: rgba(0,0,0,0.85);
+		z-index: 1000;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 40px;
+		pointer-events: none;
+		opacity: 0;
+		transition: all 0.5s ease;
+		&.on{
+			pointer-events: all;
+			opacity: 1;
+		}
+		.innerCont{
+			color: #ffffff;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			position: relative;
+			h2{
+				width: 100%;
+				margin-bottom: 20px;
+				text-align: center;
+				padding-bottom: 10px;
+				border-bottom: 1px solid #ffffff;
+			}
+			&>div{
+				width: calc(25% - 10px);
+				margin-right: 10px;
+				margin-bottom: 30px;
+				padding-right: 10px;
+				border-right: 1px dotted #ffffff;
+				text-align: center;
+				&:nth-of-type(4n){
+					margin-right: 0;
+					border-right: none;
+				}
+				&:last-of-type{
+					margin-right: 0;
+					border-right: none;
+				}
+				p{
+					&:first-of-type{
+						font-weight: bold;
+						margin-bottom: 10px;
+					}
+					&:nth-of-type(2){
+						font-weight: bold;
+						margin-bottom: 10px;
+						color: #ffff00;
+						&::before{
+							content: "残り";
+						}
+						&::after{
+							content: "点";
+						}
+					}
+				}
+				input{
+					&[type="number"]{
+						display: block;
+						width: 60%;
+						padding: 5px;
+						color: #333333;
+						margin: 3px auto 8px auto;
+					}
+					&[type="button"]{
+						background: #ffffff;
+						padding: 2px 4px;
+						color: #333333;
+						border: 1px solid transparent;
+						border-radius: 3px;
+						&[value="増やす"]{
+							margin-right: 5px;
+						}
+					}
+				}
+			}
+		}
+		#closeStock{
+			position: absolute;
+			top: 40px;
+			right: 40px;
+			background: #ffffff;
+			padding: 5px 10px;
+			color: #333333;
+			border: 1px solid transparent;
+			border-radius: 3px;
+			font-weight: bold;
+		}
+	}
+	#staffControlBtn{
+		background: #333333;
+		color: #ffffff;
+		padding: 5px 10px;
+		border: 1px solid transparent;
+		border-radius: 3px;
+		margin: 20px 0 20px 20px;
 	}
 }
