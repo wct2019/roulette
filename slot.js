@@ -21,7 +21,7 @@ this.itemList = {
 	2: {bottle: 100},
 	3: {mobilebattery: 100},
 	4: {dorayaki: 120},
-	5: {chocolate: 495},
+	5: {chocolate: 135},
 	6: {bankerring: 100}
 };
 
@@ -135,7 +135,7 @@ function stop() {
 				$('#result').text('どらやき').fadeIn(300);
 				break;
 			case "chocolate":
-				$('#result').text('カスタムチョコレート').fadeIn(300);
+				$('#result').text('チョコレート').fadeIn(300);
 				break;
 			case 'bankerring':
 				$('#result').text('バンカーリング').fadeIn(300);
