@@ -2,9 +2,8 @@
  * WordCamp Tokyo 2019 景品スロット
  *
  * @version    0.1.0
- * @author     Takahiro Takamuku <keisuke@keisuke-imura.com>
+ * @author     Takahiro Takamuku
  * @license    The MIT License
- * @link       http://funteractive.jp/
  */
 
 // 初期起動時ボタン非表示処理
@@ -119,7 +118,32 @@ function stop() {
 		this.getItemName = Object.keys(itemList[itemNo]);
 
 		// 画面下部に獲得商品文字列を表示する
-		$('#result').text(getItemName).fadeIn(300);
+		document.getElementById('result').style.visibility = 'visible';
+
+		// 獲得商品文字列を、商品に合わせて日本語で表示する
+		switch (getItemName.toString()) {
+			case 'tshirt':
+				$('#result').text('T-シャツ').fadeIn(300);
+				break;
+			case 'sticker_history':
+				$('#result').text('歴代わぷーステッカー').fadeIn(300);
+				break;
+			case 'bottle':
+				$('#result').text('アルミボトル').fadeIn(300);
+				break;
+			case 'mobilebattery':
+				$('#result').text('モバイルバッテリー').fadeIn(300);
+				break;
+			case 'dorayaki':
+				$('#result').text('どらやき').fadeIn(300);
+				break;
+			case "chocolate":
+				$('#result').text('カスタムチョコレート').fadeIn(300);
+				break;
+			case 'bankerring':
+				$('#result').text('バンカーリング').fadeIn(300);
+				break;
+		}
 
 		// スロット表示中の画像を止める
 		clearInterval(rouletteItemImg);
@@ -145,9 +169,11 @@ function pageback() {
 	defaultImg.setAttribute('src', 'img/img_start.png');
 
 	// スタートボタンへの置き換え（今の所は仮。デザイン決定後、実装変更）
-  $('#result').text('デザイン決定後実装').fadeIn(300);
+  // $('#result').text('デザイン決定後実装').fadeIn(300);
 
 	document.getElementById('pageback').style.visibility = 'hidden';
+	document.getElementById('result').style.visibility = 'hidden';
+	// $('#result').text('').fadeIn(300);
 	document.getElementById('start').style.visibility = 'visible';
 }
 
@@ -296,24 +322,3 @@ function bankerringDecrement() {
 	itemcheck();
 }
 // バンカーリング 在庫数の更新ここまで
-
-// 在庫数ファイルの読み込み（現在のところ使用用途無し）
-// $("#loadFile").onchange = function(evt){
-//     var file = evt.target.files[0];
-//     if(!file.type.match(/text/)){
-//         alert('テキストファイルを' + '選んで下さい');
-//         return;
-// }
-
-// var reader = new FileReader();
-// reader.onload = function(evt) {
-//     $("#info").value = evt.target.result;
-// }
-//
-// reader.readAsText(file, "Shift_JIS");
-// }
-//
-// function $(id) {
-//     return document.querySelector(id);
-// }
-// 在庫数ファイルの読み込みここまで
