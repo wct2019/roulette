@@ -168,9 +168,6 @@ function pageback() {
 	var defaultImg = document.getElementById('img');
 	defaultImg.setAttribute('src', 'img/img_start.png');
 
-	// スタートボタンへの置き換え（今の所は仮。デザイン決定後、実装変更）
-  // $('#result').text('デザイン決定後実装').fadeIn(300);
-
 	document.getElementById('pageback').style.visibility = 'hidden';
 	document.getElementById('result').style.visibility = 'hidden';
 	// $('#result').text('').fadeIn(300);
