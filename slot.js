@@ -10,9 +10,6 @@
 document.getElementById('pageback').style.visibility = 'hidden';
 document.getElementById('stop').style.visibility = 'hidden';
 
-// 在庫数更新画面を非表示
-//document.getElementById('displayitemsStock').style.visibility = 'hidden';
-
 // 商品一覧
 var itemList;
 
@@ -169,8 +166,7 @@ function pageback() {
 	defaultImg.setAttribute('src', 'img/img_start.png');
 
 	document.getElementById('pageback').style.visibility = 'hidden';
-	document.getElementById('result').style.visibility = 'hidden';
-	// $('#result').text('').fadeIn(300);
+	document.getElementById('result').style.display = 'none';
 	document.getElementById('start').style.visibility = 'visible';
 }
 
@@ -184,7 +180,6 @@ $('#staffControlBtn').on('click',function(){
 function itemcheck() {
 	console.log(this.itemList);
 	// 在庫数更新画面を表示
-	//document.getElementById('displayitems').style.visibility = 'visible';
 	document.getElementById('tshirt').textContent = itemList[0].tshirt;
 	document.getElementById('sticker_history').textContent = itemList[1].sticker_history;
 	document.getElementById('bottle').textContent = itemList[2].bottle;
@@ -196,10 +191,6 @@ function itemcheck() {
 $('#closeStock').on('click',function(){
 	$('#displayitemsStock').removeClass('on');
 });
-/*function nodisplay() {
-	// 在庫数更新画面を表示
-	document.getElementById('displayitems').style.visibility = 'hidden';
-}*/
 
 // T-シャツ 在庫数の更新
 function tshirtIncrement() {
