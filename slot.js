@@ -17,10 +17,10 @@ var itemList;
 this.itemList = {
 	// 商品番号: {商品名: 初期個数}
 	0: {tshirt: 30},
-	1: {sticker_history: 500},
+	1: {sticker_history: 400},
 	2: {bottle: 100},
 	3: {mobilebattery: 100},
-	4: {dorayaki: 120},
+	4: {dorayaki: 90},
 	5: {chocolate: 135},
 	6: {bankerring: 100}
 };
